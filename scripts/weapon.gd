@@ -1,9 +1,8 @@
 extends Node2D
 
-
 @export var max_ammo := 5
 var ammo := max_ammo
-var fire_rate := 0.5
+var fire_rate := 0.2
 var fire_timer := 0.0
 var reload_speed := 1.0
 var reload_timer := 0.0
