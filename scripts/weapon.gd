@@ -37,7 +37,8 @@ func _physics_process(delta: float) -> void:
 		fire_timer = fire_rate
 		var new_bullet := bullet_scene.instantiate()
 		new_bullet.direction = direction
-		new_bullet.global_position = global_position
+		new_bullet.global_position.x = global_position.x + sprite.texture.get_width() * cos(direction.angle())
+		new_bullet.global_position.y = global_position.y + sprite.texture.get_width() * sin(direction.angle())
 		new_bullet.rotation = rotation
 		get_tree().get_current_scene().add_child(new_bullet)
 	
