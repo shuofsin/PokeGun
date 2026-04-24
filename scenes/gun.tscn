@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://pc36ht7ifwnl"]
+
+[ext_resource type="Script" uid="uid://biqh4i5my2tp0" path="res://scripts/gun_scene.gd" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://ckhwbfstxp4c1" path="res://assets/sprites/gun.png" id="2_gp1hk"]
+
+[node name="Gun" type="Node2D" unique_id=1821908589]
+script = ExtResource("1_og67c")
+
+[node name="RotationOffset" type="Node2D" parent="." unique_id=1326142391]
+
+[node name="Sprite2D" type="Sprite2D" parent="RotationOffset" unique_id=1898626285]
+texture = ExtResource("2_gp1hk")
+
+[node name="Shadow" type="Sprite2D" parent="RotationOffset/Sprite2D" unique_id=695058185]
+modulate = Color(0, 0, 0, 0.60784316)
+z_index = -1
+texture = ExtResource("2_gp1hk")
+
+[node name="ShootPosition" type="Marker2D" parent="RotationOffset/Sprite2D" unique_id=2141956901]
+position = Vector2(6, -2)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=67431977]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1462122269]
+zoom = Vector2(5, 5)
