@@ -1,5 +1,7 @@
 extends Node2D
 
+const bullet_scene: PackedScene = preload("res://scenes/better_bullet.tscn")
+
 @onready var rotation_offset: Node2D = $RotationOffset
 @onready var shadow: Sprite2D = $RotationOffset/Sprite2D/Shadow
 @onready var shoot_position: Marker2D = $RotationOffset/Sprite2D/ShootPosition
@@ -22,6 +24,10 @@ func _physics_process(delta: float) -> void:
 		shoot_timer.start()
 
 func _shoot() -> void: 
+	var new_bullet := bullet_scene.instantiate()
+	new_bullet.global_position = shoot_position.global_position
+	new_bullet.global_rotation = shoot_position.global_rotation
+	get_parent().add_child(new_bullet)
 	pass
 
 func _on_shoot_timer_timeout() -> void: 
