@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name Bullet
 
 @onready var shadow: Sprite2D = $Shadow
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -11,6 +12,7 @@ func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
 	distance_timer.timeout.connect(_on_distance_timer_timeout)
 	animation_player.play("appear")
+	
 
 func _physics_process(delta: float) -> void:
 	global_position += Vector2(1, 0).rotated(rotation) * speed * delta

@@ -1,0 +1,4 @@
+# Notes
+
+## Random Considerations 
+- For weapons, should we also have a marker variable instead of calculations?

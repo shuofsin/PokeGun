@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cm1gswmiq0r7l"]
 
-[ext_resource type="PackedScene" uid="uid://b666xia8242pr" path="res://scenes/debug.tscn" id="1_3263u"]
 [ext_resource type="PackedScene" uid="uid://bf2xoxj8omemi" path="res://scenes/player.tscn" id="1_kyfjp"]
 [ext_resource type="Texture2D" uid="uid://id2mq5nfwwul" path="res://assets/sprites/colored_packed.png" id="2_amxg5"]
 [ext_resource type="PackedScene" uid="uid://2ybgpc362i4i" path="res://scenes/stump.tscn" id="4_umbte"]
+[ext_resource type="PackedScene" uid="uid://rqnk7olbuvo7" path="res://scenes/test_pickup.tscn" id="4_ynswa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3263u"]
 texture = ExtResource("2_amxg5")
@@ -1103,8 +1103,6 @@ normal = Vector2(0, 1)
 [node name="TestWorld" type="Node2D" unique_id=883875407]
 y_sort_enabled = true
 
-[node name="Debug" parent="." unique_id=1038911967 instance=ExtResource("1_3263u")]
-
 [node name="Player" parent="." unique_id=1049150385 instance=ExtResource("1_kyfjp")]
 position = Vector2(87, 81)
 
@@ -1140,3 +1138,6 @@ shape = SubResource("WorldBoundaryShape2D_ynswa")
 
 [node name="Stump" parent="." unique_id=656651914 instance=ExtResource("4_umbte")]
 position = Vector2(183, 96)
+
+[node name="TestPickup" parent="." unique_id=785363534 instance=ExtResource("4_ynswa")]
+position = Vector2(129, 116)

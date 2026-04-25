@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bf2xoxj8omemi"]
 
 [ext_resource type="Script" uid="uid://pkh38lmevwrm" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Script" uid="uid://dybtvgsujunf1" path="res://scripts/weapon.gd" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://0ht73miglkpp" path="res://assets/sprites/DinoSprites - vita.png" id="2_qhqgy"]
-[ext_resource type="Texture2D" uid="uid://ckhwbfstxp4c1" path="res://assets/sprites/gun.png" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -96,33 +94,16 @@ y_sort_enabled = true
 collision_mask = 3
 script = ExtResource("1_g2els")
 
-[node name="Label" type="Label" parent="." unique_id=1367811606]
-unique_name_in_owner = true
-offset_left = -28.0
-offset_top = -12.0
-offset_right = 28.0
-theme_override_font_sizes/font_size = 8
-text = "Reloading..."
-horizontal_alignment = 1
-
-[node name="Weapon" type="Node2D" parent="." unique_id=1147022074]
-unique_name_in_owner = true
-position = Vector2(0, 10)
-script = ExtResource("2_dqkch")
-
-[node name="Sprite" type="Sprite2D" parent="Weapon" unique_id=999635827]
-z_index = 1
-position = Vector2(8, 0)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("3_qhqgy")
-
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=1760165828]
-position = Vector2(0, 8)
+position = Vector2(1, 9)
 sprite_frames = SubResource("SpriteFrames_f1ej7")
 animation = &"walk"
-frame = 5
-frame_progress = 0.13287364
+frame = 3
+frame_progress = 0.958037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1843234172]
 position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_oprun")
+
+[node name="WeaponManager" type="Node2D" parent="." unique_id=850267692]
+position = Vector2(0, 12)

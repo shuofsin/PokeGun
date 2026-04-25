@@ -1,48 +1,29 @@
 extends Node2D
+class_name Weapon
 
-@export var max_ammo := 5
-var ammo := max_ammo
-var fire_rate := 0.2
-var fire_timer := 0.0
-var reload_speed := 1.0
-var reload_timer := 0.0
-var is_reloading := false
+@export var weapon_sprite : Sprite2D
+@export var bullet_scene : PackedScene # Limit this to just bullet scenes?
+@export var time_between_shoot : float
+@export var turn_weight : float
 
-@onready var sprite: Sprite2D = $Sprite
-@onready var bullet_scene: PackedScene = preload("res://scenes/bullet.tscn")
-@onready var label: Label = %Label
+var shoot_timer : float
+var can_shoot : bool
 
-func _physics_process(delta: float) -> void:
-	if ammo >= 0 && !is_reloading: 
-		label.text = str(ammo)
+func _physics_process(delta: float) -> void: 
+	rotation = lerp_angle(rotation, (get_global_mouse_position() - global_position).angle(), turn_weight * delta)
+	rotation_degrees = wrapf(rotation_degrees, 0, 360)
 	
-	if fire_timer >= 0:
-		fire_timer -= delta
+	if weapon_sprite:
+		weapon_sprite.flip_v = (rotation_degrees > 90 && rotation_degrees < 270)
 	
-	if reload_timer >= 0:
-		reload_timer -= delta
-	elif is_reloading:
-		is_reloading = false
-		ammo = max_ammo
+	if Input.is_action_just_pressed("shoot") and can_shoot: 
+		_shoot()
+		can_shoot = false
+		shoot_timer = time_between_shoot
 	
-	var direction := global_position.direction_to(get_global_mouse_position())
-	rotation = direction.angle()
-	if direction.x < 0:
-		sprite.flip_v = true
-	elif direction.x > 0:
-		sprite.flip_v = false
-	
-	if Input.is_action_just_pressed("shoot") && fire_timer <= 0 && ammo > 0 && !is_reloading:
-		ammo -= 1 
-		fire_timer = fire_rate
-		var new_bullet := bullet_scene.instantiate()
-		new_bullet.direction = direction
-		new_bullet.global_position.x = global_position.x + sprite.texture.get_width() * cos(direction.angle())
-		new_bullet.global_position.y = global_position.y + sprite.texture.get_width() * sin(direction.angle())
-		new_bullet.rotation = rotation
-		get_tree().get_current_scene().add_child(new_bullet)
-	
-	if Input.is_action_just_pressed("reload") && !is_reloading:
-		reload_timer = reload_speed
-		label.text = "Reloading..."
-		is_reloading = true
+	shoot_timer -= delta
+	if shoot_timer <= 0 && !can_shoot: 
+		can_shoot = true
+
+func _shoot() -> void: 
+	pass

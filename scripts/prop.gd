@@ -1,9 +1,9 @@
 extends StaticBody2D
 class_name Prop
 
-@export var hit_box : HitBoxComponent
+@export var health_box : HealthBoxComponent
 @export var hit_flash_animation : AnimationPlayer
 
 func _ready() -> void: 
-	if hit_box: 
-		hit_box.damaged.connect(func(): hit_flash_animation.play("hit"))
+	if health_box: 
+		health_box.damaged.connect(func(): hit_flash_animation.play("hit"))

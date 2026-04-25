@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://rqnk7olbuvo7"]
+
+[ext_resource type="Script" uid="uid://d0oy2lt63pf70" path="res://scripts/test_pickup.gd" id="1_uycdj"]
+[ext_resource type="Texture2D" uid="uid://ckhwbfstxp4c1" path="res://assets/sprites/basic_pistol.png" id="2_getlr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uycdj"]
+radius = 8.0
+
+[node name="TestPickup" type="Area2D" unique_id=785363534]
+collision_layer = 0
+script = ExtResource("1_uycdj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1710866757]
+texture = ExtResource("2_getlr")
+
+[node name="Label" type="Label" parent="." unique_id=573636214]
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 7.0
+theme_override_font_sizes/font_size = 8
+text = "Press E to equip!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403398553]
+shape = SubResource("CircleShape2D_uycdj")

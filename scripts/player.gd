@@ -1,12 +1,13 @@
 extends CharacterBody2D
+class_name Player
+
+@onready var animations: AnimatedSprite2D = $Animations
+@onready var weapon_manager: Node2D = $WeaponManager
 
 @export var max_speed := 100.0
 @export var acceleration_time := 0.1
 
-@onready var animations: AnimatedSprite2D = $Animations
-
-@onready var weapon: Node2D = %Weapon
-
+var current_weapon: Weapon
 
 func _ready() -> void: 
 	Global.player = self
@@ -31,9 +32,9 @@ func _physics_process(delta: float) -> void:
 	else: 
 		animations.play("walk")
 	
-	if velocity.x > 0: 
-		animations.flip_h = false
-	elif velocity.x < 0:
-		animations.flip_h = true
+	if current_weapon && current_weapon.weapon_sprite: 
+		animations.flip_h = current_weapon.weapon_sprite.flip_v
+	elif velocity.x != 0:
+		animations.flip_h = velocity.x < 0
 	
 	move_and_slide()
