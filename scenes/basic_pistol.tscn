@@ -1,20 +1,17 @@
-[gd_scene format=3 uid="uid://hdj3hvqyhvye"]
+[gd_scene format=3 uid="uid://biabqjhhhafdk"]
 
 [ext_resource type="Script" uid="uid://cxeo2ymiaaqbh" path="res://scripts/basic_pistol.gd" id="1_wa4th"]
-[ext_resource type="PackedScene" uid="uid://b32mm5xaqbjk5" path="res://scenes/basic_bullet.tscn" id="2_foi7f"]
+[ext_resource type="PackedScene" uid="uid://dqbwhf7ka0q1g" path="res://scenes/basic_bullet.tscn" id="2_foi7f"]
 [ext_resource type="Texture2D" uid="uid://ckhwbfstxp4c1" path="res://assets/sprites/basic_pistol.png" id="2_wa4th"]
 
 [node name="BasicPistol" type="Node2D" unique_id=366454221 node_paths=PackedStringArray("weapon_sprite")]
 script = ExtResource("1_wa4th")
 weapon_sprite = NodePath("Sprite2D")
 bullet_scene = ExtResource("2_foi7f")
-time_between_shoot = 0.2
-turn_weight = 6.5
+time_between_shoot = 0.5
+turn_speed = 10.0
 metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=97707832]
 position = Vector2(9, 0)
 texture = ExtResource("2_wa4th")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1364078964]
-zoom = Vector2(5, 5)

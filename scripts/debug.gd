@@ -1,6 +1,6 @@
 extends Node2D
 
-var message_dictionary: Dictionary
+var message_dictionary: Dictionary[String, String]
 @onready var label: Label = $Label
 
 func _ready() -> void: 
@@ -9,4 +9,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	for key in message_dictionary:
-		label.text += (str(key) + ": " + str(message_dictionary[key]) + "\n")
+		label.text += (key + ": " + message_dictionary[key] + "\n")
+
+func _add_message(key: String, message: String) -> void: 
+	message_dictionary[key] = message

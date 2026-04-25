@@ -7,8 +7,6 @@ class_name Player
 @export var max_speed := 100.0
 @export var acceleration_time := 0.1
 
-var current_weapon: Weapon
-
 func _ready() -> void: 
 	Global.player = self
 	pass
@@ -32,8 +30,8 @@ func _physics_process(delta: float) -> void:
 	else: 
 		animations.play("walk")
 	
-	if current_weapon && current_weapon.weapon_sprite: 
-		animations.flip_h = current_weapon.weapon_sprite.flip_v
+	if weapon_manager.current_weapon && weapon_manager.current_weapon.weapon_sprite: 
+		animations.flip_h = weapon_manager.current_weapon.weapon_sprite.flip_v
 	elif velocity.x != 0:
 		animations.flip_h = velocity.x < 0
 	

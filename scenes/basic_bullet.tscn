@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b32mm5xaqbjk5"]
+[gd_scene format=3 uid="uid://dqbwhf7ka0q1g"]
 
 [ext_resource type="Script" uid="uid://dtxbshdsfsoor" path="res://scripts/projectile.gd" id="1_kewi4"]
 [ext_resource type="Texture2D" uid="uid://ddx4oiy1vu2sa" path="res://assets/sprites/basic_bullet.png" id="2_t6flp"]
@@ -20,7 +20,6 @@ projectile_sprite = NodePath("Sprite2D")
 speed = 120.0
 time_to_remove = 10.0
 hit_box = NodePath("HitBoxComponent")
-metadata/_custom_type_script = "uid://dtxbshdsfsoor"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=553606606]
 texture = ExtResource("2_t6flp")

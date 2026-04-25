@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b5aw052rr35yf"]
+
+[ext_resource type="Script" uid="uid://y7pivalxo0hd" path="res://scripts/weapon_pickup.gd" id="1_824d6"]
+[ext_resource type="Texture2D" uid="uid://dpbslwb5yfte1" path="res://assets/sprites/basic_smg.png" id="2_b45fd"]
+[ext_resource type="PackedScene" uid="uid://eqr4f5gbxww4" path="res://scenes/basic_smg.tscn" id="2_dhew7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b45fd"]
+radius = 7.0
+
+[node name="BasicSMGPickup" type="Area2D" unique_id=1405260342 node_paths=PackedStringArray("label")]
+collision_layer = 0
+script = ExtResource("1_824d6")
+weapon_scene = ExtResource("2_dhew7")
+label = NodePath("Label")
+metadata/_custom_type_script = "uid://y7pivalxo0hd"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1279113382]
+texture = ExtResource("2_b45fd")
+
+[node name="Label" type="Label" parent="." unique_id=504161296]
+offset_left = -32.0
+offset_top = -13.0
+offset_right = 32.0
+theme_override_font_sizes/font_size = 8
+text = "Press E to equip!"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1941718406]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_b45fd")

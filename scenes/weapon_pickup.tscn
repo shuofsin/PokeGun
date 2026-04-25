@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c8fi1susbfbf"]
+
+[ext_resource type="Script" uid="uid://y7pivalxo0hd" path="res://scripts/weapon_pickup.gd" id="1_0reak"]
+
+[node name="WeaponPickup" type="Area2D" unique_id=776540989]
+collision_layer = 0
+script = ExtResource("1_0reak")

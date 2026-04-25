@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://eqr4f5gbxww4"]
+
+[ext_resource type="Script" uid="uid://clv1anaj1mfft" path="res://scripts/basic_smg.gd" id="1_cky3o"]
+[ext_resource type="PackedScene" uid="uid://dqbwhf7ka0q1g" path="res://scenes/basic_bullet.tscn" id="2_gk5tu"]
+[ext_resource type="Texture2D" uid="uid://dpbslwb5yfte1" path="res://assets/sprites/basic_smg.png" id="3_8ka1b"]
+
+[node name="BasicSMG" type="Node2D" unique_id=1624018268 node_paths=PackedStringArray("weapon_sprite")]
+script = ExtResource("1_cky3o")
+weapon_sprite = NodePath("Sprite2D")
+bullet_scene = ExtResource("2_gk5tu")
+time_between_shoot = 0.02
+turn_speed = 6.5
+full_auto = true
+metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=701020144]
+position = Vector2(9, 0)
+texture = ExtResource("3_8ka1b")

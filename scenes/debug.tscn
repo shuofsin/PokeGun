@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ch38n7vd53cos"]
+
+[ext_resource type="Script" uid="uid://cbl1bkh4acnre" path="res://scripts/debug.gd" id="1_ldsek"]
+
+[node name="Debug" type="Node2D" unique_id=459355429]
+script = ExtResource("1_ldsek")
+
+[node name="Label" type="Label" parent="." unique_id=836202850]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
+text = "Test Message"

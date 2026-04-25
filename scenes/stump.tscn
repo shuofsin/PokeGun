@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://2ybgpc362i4i"]
 
 [ext_resource type="Texture2D" uid="uid://dvbioyxbb6u54" path="res://assets/sprites/stump.png" id="1_c6xkf"]
-[ext_resource type="Script" uid="uid://0olte2wdplk2" path="res://scripts/prop.gd" id="1_hnrxv"]
+[ext_resource type="Script" uid="uid://0olte2wdplk2" path="res://scripts/stump.gd" id="1_hnrxv"]
 [ext_resource type="Shader" uid="uid://ct2print168u0" path="res://shaders/hitflash.gdshader" id="1_s6exu"]
 [ext_resource type="PackedScene" uid="uid://dehp66y2tul5u" path="res://scenes/health_component.tscn" id="2_7qlwd"]
-[ext_resource type="PackedScene" uid="uid://bpra7kfroj0i3" path="res://scenes/health_box_component.tscn" id="3_s6exu"]
+[ext_resource type="Script" uid="uid://bnclmjk8l8mo" path="res://scripts/health_box_component.gd" id="5_hnrxv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnrxv"]
 shader = ExtResource("1_s6exu")
@@ -15,7 +15,7 @@ shader_parameter/hit_flash_on = false
 radius = 4.0
 height = 12.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7qlwd"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnrxv"]
 radius = 6.0
 height = 16.0
 
@@ -56,13 +56,11 @@ _data = {
 &"hit": SubResource("Animation_hnrxv")
 }
 
-[node name="Stump" type="StaticBody2D" unique_id=656651914 node_paths=PackedStringArray("health_box", "hit_flash_animation")]
+[node name="Stump" type="StaticBody2D" unique_id=656651914]
 y_sort_enabled = true
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_hnrxv")
-health_box = NodePath("HealthBoxComponent")
-hit_flash_animation = NodePath("HitFlashAnimation")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1502867586]
 material = SubResource("ShaderMaterial_hnrxv")
@@ -77,15 +75,17 @@ shape = SubResource("CapsuleShape2D_c6xkf")
 [node name="HealthComponent" parent="." unique_id=1065045835 instance=ExtResource("2_7qlwd")]
 MAX_HEALTH = 3.0
 
-[node name="HealthBoxComponent" parent="." unique_id=352779148 node_paths=PackedStringArray("health_component") instance=ExtResource("3_s6exu")]
+[node name="HealthBoxComponent" type="Area2D" parent="." unique_id=2006477100 node_paths=PackedStringArray("health_component")]
 collision_layer = 2
 collision_mask = 0
+script = ExtResource("5_hnrxv")
 health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://bnclmjk8l8mo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthBoxComponent" unique_id=2016058435]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthBoxComponent" unique_id=1411037616]
 position = Vector2(0, 7)
-shape = SubResource("CapsuleShape2D_7qlwd")
-debug_color = Color(3.3691526e-07, 0.6421003, 0.32861543, 0.41960785)
+shape = SubResource("CapsuleShape2D_hnrxv")
+debug_color = Color(0, 0.65020573, 0.122706465, 0.41960785)
 
 [node name="HitFlashAnimation" type="AnimationPlayer" parent="." unique_id=735753234]
 libraries/ = SubResource("AnimationLibrary_2cn8x")

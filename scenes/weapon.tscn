@@ -1,8 +1,6 @@
-[gd_scene format=3 uid="uid://42ylhjulb7x3"]
+[gd_scene format=3 uid="uid://fattr1olkf8r"]
 
 [ext_resource type="Script" uid="uid://bewfgrjd6oo3m" path="res://scripts/weapon.gd" id="1_xasec"]
-[ext_resource type="PackedScene" uid="uid://b5s4j2rhrgfup" path="res://scenes/test_bullet.tscn" id="2_uxn4k"]
 
 [node name="Weapon" type="Node2D" unique_id=1658013607]
 script = ExtResource("1_xasec")
-bullet = ExtResource("2_uxn4k")

@@ -3,10 +3,10 @@ extends Weapon
 func _shoot() -> void: 
 	var offset: float = 15
 	if weapon_sprite:
-		offset = weapon_sprite.texture.get_width() * weapon_sprite.scale.x # + weapon_sprite.position.x
+		offset = weapon_sprite.texture.get_width() * weapon_sprite.scale.x
 	
 	var new_bullet = bullet_scene.instantiate()
-	new_bullet.global_rotation = global_rotation + randf_range(-0.2, 0.2)
+	new_bullet.global_rotation = global_rotation + randf_range(-0.5, 0.5)
 	new_bullet.global_position = Vector2(
 		global_position.x + offset * cos(rotation),
 		global_position.y + offset * sin(rotation)
