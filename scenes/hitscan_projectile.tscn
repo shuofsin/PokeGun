@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://r3io7nyhv4ro"]
+
+[ext_resource type="Script" uid="uid://btgq0klhj8l1h" path="res://scripts/hitscan_projectile.gd" id="1_b7sv6"]
+[ext_resource type="Script" uid="uid://c12smj4dhjq03" path="res://scripts/attack.gd" id="2_2sscl"]
+
+[sub_resource type="Resource" id="Resource_hgte4"]
+script = ExtResource("2_2sscl")
+attack_damage = 0.5
+metadata/_custom_type_script = "uid://c12smj4dhjq03"
+
+[node name="HitscanProjectile" type="Node2D" unique_id=7087141]
+script = ExtResource("1_b7sv6")
+attack = SubResource("Resource_hgte4")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=89885556]
+target_position = Vector2(30, 0)
+collision_mask = 7

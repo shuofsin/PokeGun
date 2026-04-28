@@ -12,3 +12,4 @@ func _shoot() -> void:
 		global_position.y + offset * sin(rotation)
 	)
 	get_tree().current_scene.add_child(new_bullet)
+	ammo -= 1

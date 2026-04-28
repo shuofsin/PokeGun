@@ -8,8 +8,10 @@
 script = ExtResource("1_cky3o")
 weapon_sprite = NodePath("Sprite2D")
 bullet_scene = ExtResource("2_gk5tu")
-time_between_shoot = 0.02
+time_between_shoot = 0.1
 turn_speed = 6.5
+max_ammo = 100
+time_to_reload = 3.0
 full_auto = true
 metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
 

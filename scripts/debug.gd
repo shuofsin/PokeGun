@@ -5,11 +5,13 @@ var message_dictionary: Dictionary[String, String]
 
 func _ready() -> void: 
 	Global.debug = self
+	message_dictionary = {}
 	label.text = ""
 
 func _process(_delta: float) -> void:
+	label.text = ""
 	for key in message_dictionary:
 		label.text += (key + ": " + message_dictionary[key] + "\n")
 
-func _add_message(key: String, message: String) -> void: 
+func add_message(key: String, message: String) -> void: 
 	message_dictionary[key] = message

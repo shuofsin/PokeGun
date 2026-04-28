@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ki75oituv8pk"]
+
+[ext_resource type="Script" uid="uid://dgbod28yq645g" path="res://scenes/basic_shotgun.gd" id="1_8h2a4"]
+[ext_resource type="PackedScene" uid="uid://r3io7nyhv4ro" path="res://scenes/hitscan_projectile.tscn" id="2_phh7u"]
+[ext_resource type="Texture2D" uid="uid://c2n6t6xl88pv8" path="res://assets/sprites/basic_shotgun.png" id="2_tltnw"]
+
+[node name="BasicShotgun" type="Node2D" unique_id=556583424 node_paths=PackedStringArray("weapon_sprite")]
+script = ExtResource("1_8h2a4")
+weapon_sprite = NodePath("BasicShotgun")
+bullet_scene = ExtResource("2_phh7u")
+time_between_shoot = 1.0
+turn_speed = 2.0
+max_ammo = 10
+time_to_reload = 5.0
+metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
+
+[node name="BasicShotgun" type="Sprite2D" parent="." unique_id=1830612863]
+position = Vector2(9, 1)
+texture = ExtResource("2_tltnw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1549874224]
+zoom = Vector2(10, 10)

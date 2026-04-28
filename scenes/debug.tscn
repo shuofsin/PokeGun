@@ -5,8 +5,13 @@
 [node name="Debug" type="Node2D" unique_id=459355429]
 script = ExtResource("1_ldsek")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=925550225]
+offset_right = 78.0
+offset_bottom = 19.0
+color = Color(0.003921569, 0.003921569, 0.003921569, 0.050980393)
+
 [node name="Label" type="Label" parent="." unique_id=836202850]
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 12
 text = "Test Message"

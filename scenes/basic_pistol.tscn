@@ -10,8 +10,11 @@ weapon_sprite = NodePath("Sprite2D")
 bullet_scene = ExtResource("2_foi7f")
 time_between_shoot = 0.5
 turn_speed = 10.0
+max_ammo = 12
+time_to_reload = 5.0
 metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=97707832]
-position = Vector2(9, 0)
+position = Vector2(4, 0)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_wa4th")
