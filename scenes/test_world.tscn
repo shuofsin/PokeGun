@@ -1112,6 +1112,7 @@ position = Vector2(87, 81)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=202317564]
 position = Vector2(144, 81)
+enabled = false
 zoom = Vector2(4, 4)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1172395370]

@@ -17,6 +17,3 @@ metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
 [node name="BasicShotgun" type="Sprite2D" parent="." unique_id=1830612863]
 position = Vector2(9, 1)
 texture = ExtResource("2_tltnw")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1549874224]
-zoom = Vector2(10, 10)

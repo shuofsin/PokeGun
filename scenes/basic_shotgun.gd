@@ -7,7 +7,7 @@ func _shoot() -> void:
 	
 	for i in range(10):
 		var new_bullet = bullet_scene.instantiate()
-		new_bullet.global_rotation = global_rotation + randf_range(-1, 1)
+		new_bullet.global_rotation = global_rotation + randf_range(-0.3, 0.3)
 		new_bullet.global_position = Vector2(
 			global_position.x + offset * cos(rotation),
 			global_position.y + offset * sin(rotation)
