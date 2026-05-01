@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ki75oituv8pk"]
 
 [ext_resource type="Script" uid="uid://dgbod28yq645g" path="res://scenes/basic_shotgun.gd" id="1_8h2a4"]
-[ext_resource type="PackedScene" uid="uid://r3io7nyhv4ro" path="res://scenes/hitscan_projectile.tscn" id="2_phh7u"]
+[ext_resource type="PackedScene" uid="uid://dqbwhf7ka0q1g" path="res://scenes/basic_bullet.tscn" id="2_phh7u"]
 [ext_resource type="Texture2D" uid="uid://c2n6t6xl88pv8" path="res://assets/sprites/basic_shotgun.png" id="2_tltnw"]
 
 [node name="BasicShotgun" type="Node2D" unique_id=556583424 node_paths=PackedStringArray("weapon_sprite")]

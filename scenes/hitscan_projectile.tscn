@@ -8,12 +8,28 @@ script = ExtResource("2_2sscl")
 attack_damage = 0.5
 metadata/_custom_type_script = "uid://c12smj4dhjq03"
 
+[sub_resource type="Curve" id="Curve_2sscl"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0.89887667), 0.0, 0.0, 0, 0, Vector2(1, 2.1910114), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hgte4"]
+offsets = PackedFloat32Array(0, 0.32894737, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 0.9843137, 0.72156864, 0.95686275, 0.9999996, 0.97928566, 0.6255057, 1)
+
 [node name="HitscanProjectile" type="Node2D" unique_id=7087141]
 script = ExtResource("1_b7sv6")
 attack = SubResource("Resource_hgte4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=89885556]
-target_position = Vector2(236, 0)
+target_position = Vector2(256, 0)
 collision_mask = 7
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Line2D" type="Line2D" parent="." unique_id=632763986]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 256, 0)
+width = 1.0
+width_curve = SubResource("Curve_2sscl")
+gradient = SubResource("Gradient_hgte4")
