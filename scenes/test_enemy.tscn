@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d3yfhm6g8sshr"]
+
+[ext_resource type="Script" uid="uid://codr7r3oemcmg" path="res://scripts/test_enemy.gd" id="1_ghv5c"]
+[ext_resource type="Texture2D" uid="uid://0ht73miglkpp" path="res://assets/sprites/DinoSprites - vita.png" id="2_jg7vu"]
+[ext_resource type="Script" uid="uid://bpxlhhcoepee2" path="res://scripts/hit_box_component.gd" id="3_4humj"]
+[ext_resource type="Script" uid="uid://c12smj4dhjq03" path="res://scripts/attack.gd" id="4_vpsq7"]
+[ext_resource type="Script" uid="uid://bv6kfcv8oghnq" path="res://scripts/health_component.gd" id="5_m853d"]
+[ext_resource type="Script" uid="uid://bnclmjk8l8mo" path="res://scripts/health_box_component.gd" id="6_4humj"]
+
+[sub_resource type="Resource" id="Resource_ik78p"]
+script = ExtResource("4_vpsq7")
+attack_damage = 10.0
+metadata/_custom_type_script = "uid://c12smj4dhjq03"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3aya"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vpsq7"]
+
+[node name="TestEnemy" type="Node2D" unique_id=1451469935]
+script = ExtResource("1_ghv5c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053203466]
+unique_name_in_owner = true
+modulate = Color(0.90526885, 3.272891e-06, 1.4439225e-06, 1)
+texture = ExtResource("2_jg7vu")
+hframes = 24
+frame = 14
+
+[node name="HitBoxComponent" type="Area2D" parent="." unique_id=1653475046]
+collision_layer = 0
+script = ExtResource("3_4humj")
+attack = SubResource("Resource_ik78p")
+metadata/_custom_type_script = "uid://bpxlhhcoepee2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" unique_id=1507819566]
+shape = SubResource("CircleShape2D_j3aya")
+disabled = true
+
+[node name="HealthComponent" type="Node2D" parent="." unique_id=1969330230]
+unique_name_in_owner = true
+script = ExtResource("5_m853d")
+metadata/_custom_type_script = "uid://bv6kfcv8oghnq"
+
+[node name="HealthBoxComponent" type="Area2D" parent="." unique_id=1399691254 node_paths=PackedStringArray("health_component")]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("6_4humj")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://bnclmjk8l8mo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthBoxComponent" unique_id=2104955995]
+shape = SubResource("CircleShape2D_vpsq7")

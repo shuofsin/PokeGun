@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://2ybgpc362i4i" path="res://scenes/stump.tscn" id="4_umbte"]
 [ext_resource type="PackedScene" uid="uid://b5aw052rr35yf" path="res://scenes/basic_smg_pickup.tscn" id="5_ynswa"]
 [ext_resource type="PackedScene" uid="uid://rqnk7olbuvo7" path="res://scenes/basic_pistol_pickup.tscn" id="6_dvny0"]
+[ext_resource type="PackedScene" uid="uid://d3yfhm6g8sshr" path="res://scenes/test_enemy.tscn" id="7_xwrkq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3263u"]
 texture = ExtResource("2_amxg5")
@@ -1151,3 +1152,33 @@ position = Vector2(115, 131)
 
 [node name="BasicPistolPickup" parent="." unique_id=28047982 instance=ExtResource("6_dvny0")]
 position = Vector2(132, 66)
+
+[node name="TestEnemy2" parent="." unique_id=1451469935 instance=ExtResource("7_xwrkq")]
+position = Vector2(36, 210)
+
+[node name="TestEnemy" parent="." unique_id=1909030910 instance=ExtResource("7_xwrkq")]
+position = Vector2(336, 180)
+
+[node name="TestEnemy3" parent="." unique_id=356626520 instance=ExtResource("7_xwrkq")]
+position = Vector2(-201, 220)
+
+[node name="TestEnemy4" parent="." unique_id=1541949693 instance=ExtResource("7_xwrkq")]
+position = Vector2(341, 348)
+
+[node name="TestEnemy5" parent="." unique_id=489776029 instance=ExtResource("7_xwrkq")]
+position = Vector2(-136, 9)
+
+[node name="TestEnemy6" parent="." unique_id=756412474 instance=ExtResource("7_xwrkq")]
+position = Vector2(77, -117)
+
+[node name="TestEnemy7" parent="." unique_id=485368352 instance=ExtResource("7_xwrkq")]
+position = Vector2(509, -51)
+
+[node name="TestEnemy8" parent="." unique_id=16323103 instance=ExtResource("7_xwrkq")]
+position = Vector2(491, 100)
+
+[node name="TestEnemy9" parent="." unique_id=2036402730 instance=ExtResource("7_xwrkq")]
+position = Vector2(237, -38)
+
+[node name="TestEnemy10" parent="." unique_id=1007216410 instance=ExtResource("7_xwrkq")]
+position = Vector2(-60, -60)
