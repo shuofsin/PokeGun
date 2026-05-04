@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cahrws3i3j6cc"]
+
+[ext_resource type="Script" uid="uid://dccms7wfpubyj" path="res://scripts/basic_rifle.gd" id="1_yw3ay"]
+[ext_resource type="Texture2D" uid="uid://dgd82gcgdbngm" path="res://assets/sprites/basic_rifle.png" id="2_taa17"]
+[ext_resource type="PackedScene" uid="uid://dqbwhf7ka0q1g" path="res://scenes/basic_bullet.tscn" id="2_yw3ay"]
+
+[node name="BasicRifle" type="Node2D" unique_id=1275798341 node_paths=PackedStringArray("weapon_sprite")]
+script = ExtResource("1_yw3ay")
+weapon_sprite = NodePath("BasicRifle")
+bullet_scene = ExtResource("2_yw3ay")
+time_between_shoot = 0.2
+turn_speed = 6.5
+max_ammo = 50
+time_to_reload = 2.0
+full_auto = true
+metadata/_custom_type_script = "uid://bewfgrjd6oo3m"
+
+[node name="BasicRifle" type="Sprite2D" parent="." unique_id=909102696]
+position = Vector2(13, 0)
+texture = ExtResource("2_taa17")

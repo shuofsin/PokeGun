@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://brwtxcxdedhi3"]
+
+[ext_resource type="Script" uid="uid://y7pivalxo0hd" path="res://scripts/weapon_pickup.gd" id="1_epenu"]
+[ext_resource type="PackedScene" uid="uid://cahrws3i3j6cc" path="res://scenes/basic_rifle.tscn" id="2_74xjh"]
+[ext_resource type="Texture2D" uid="uid://dgd82gcgdbngm" path="res://assets/sprites/basic_rifle.png" id="3_74xjh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7127x"]
+radius = 13.0
+
+[node name="BasicRiflePickup" type="Area2D" unique_id=1510645256 node_paths=PackedStringArray("label")]
+collision_layer = 0
+script = ExtResource("1_epenu")
+weapon_scene = ExtResource("2_74xjh")
+label = NodePath("Label")
+metadata/_custom_type_script = "uid://y7pivalxo0hd"
+
+[node name="Label" type="Label" parent="." unique_id=1650152248]
+offset_left = -59.0
+offset_top = -21.0
+offset_right = 64.0
+offset_bottom = 2.0
+theme_override_font_sizes/font_size = 8
+text = "Press E to Equip"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1353926804]
+shape = SubResource("CircleShape2D_7127x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1305349855]
+texture = ExtResource("3_74xjh")

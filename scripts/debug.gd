@@ -14,8 +14,8 @@ func _process(_delta: float) -> void:
 	for key in message_dictionary:
 		label.text += (key + ": " + message_dictionary[key] + "\n")
 	
-	if Global.weapon_manager.current_weapon && Global.weapon_manager.current_weapon.weapon_sprite:
-		sprite_2d.set_texture(Global.weapon_manager.current_weapon.weapon_sprite.get_texture())
+	# if Global.weapon_manager.current_weapon && Global.weapon_manager.current_weapon.weapon_sprite:
+		# sprite_2d.set_texture(Global.weapon_manager.current_weapon.weapon_sprite.get_texture())
 
 func add_message(key: String, message: String) -> void: 
 	message_dictionary[key] = message

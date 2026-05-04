@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://pkh38lmevwrm" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://0ht73miglkpp" path="res://assets/sprites/DinoSprites - vita.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://c0kvhsg2agi2y" path="res://scripts/weapon_manager.gd" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://dk8xtwkr1b66b" path="res://scenes/inventory_screen.tscn" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -109,3 +110,24 @@ shape = SubResource("CircleShape2D_oprun")
 [node name="WeaponManager" type="Node2D" parent="." unique_id=850267692]
 position = Vector2(0, 9)
 script = ExtResource("3_qhqgy")
+
+[node name="Label" type="Label" parent="WeaponManager" unique_id=992884581]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 8
+text = "Ammo"
+horizontal_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=927840321]
+zoom = Vector2(4, 4)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+
+[node name="InventoryScreen" parent="." unique_id=1497555551 instance=ExtResource("4_dqkch")]

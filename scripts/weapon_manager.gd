@@ -1,50 +1,57 @@
 extends Node2D
 
 var current_weapon: Weapon
-var current_weapon_slot: int = -1
-var weapons: Array[Weapon]
+var stowed_weapon: Weapon
+var stored_weapons: Array[Weapon]
+
+@onready var label: Label = %Label
 
 func _ready() -> void: 
 	Global.weapon_manager = self
-	var weapon_scene := preload("res://scenes/basic_shotgun.tscn")
-	var new_weapon: Weapon = weapon_scene.instantiate()
-	pickup_weapon(new_weapon)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("switch_weapon"):
-		var next_slot = current_weapon_slot + 1
-		if next_slot >= weapons.size(): 
-			next_slot = 0
-		equip_weapon(next_slot)
-	Global.debug.add_message("Ammo", get_ammo_display())
+		_switch_weapon()
+	label.text = _get_ammo_display()
 
 func pickup_weapon(new_weapon: Weapon) -> void: 
-	for weapon in weapons: 
-		weapon.set_physics_process(false)
-		weapon.set_process(false)
-		weapon.visible = false
-	weapons.append(new_weapon)
-	add_child(new_weapon)
-	current_weapon_slot += 1
-	current_weapon = weapons[current_weapon_slot]
-
-func equip_weapon(weapon_slot: int) -> void: 
-	if weapon_slot >= weapons.size() || weapons.size() == 0:
+	if !current_weapon:
+		current_weapon = new_weapon
+		add_child(current_weapon)
 		return
-	for weapon in weapons:
-		weapon.set_physics_process(false)
-		weapon.set_process(false)
-		weapon.visible = false
-	current_weapon = weapons[weapon_slot]
-	current_weapon.set_physics_process(true)
-	current_weapon.set_process(true)
-	current_weapon.visible = true
-	current_weapon_slot = weapon_slot
+	
+	if !stowed_weapon: 
+		stowed_weapon = current_weapon
+		_set_weapon_enable(stowed_weapon, false)
+		current_weapon = new_weapon
+		add_child(current_weapon)
+		return
+	
+	var temp_weapon: Weapon = current_weapon
+	_set_weapon_enable(temp_weapon, false)
+	stored_weapons.append(temp_weapon)
+	current_weapon = new_weapon
+	add_child(current_weapon)
 
-func get_ammo_display() -> String: 
+func _switch_weapon() -> void: 
+	if !current_weapon || !stowed_weapon: 
+		return 
+	
+	var temp_weapon: Weapon = current_weapon
+	_set_weapon_enable(temp_weapon, false)
+	current_weapon = stowed_weapon
+	_set_weapon_enable(current_weapon, true)
+	stowed_weapon = temp_weapon
+
+func _get_ammo_display() -> String: 
 	if current_weapon: 
 		if !current_weapon.is_reloading:
 			return str(current_weapon.ammo) + "/" + str(current_weapon.max_ammo)
 		else: 
-			return str(int(current_weapon.reload_timer))
+			return str(Global.round_to_digit(current_weapon.reload_timer, 2))
 	return ""
+
+func _set_weapon_enable(weapon: Weapon, is_enabled: bool) -> void:
+	weapon.set_physics_process(is_enabled)
+	weapon.set_process(is_enabled)
+	weapon.visible = is_enabled
