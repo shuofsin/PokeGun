@@ -43,6 +43,36 @@ func _switch_weapon() -> void:
 	_set_weapon_enable(current_weapon, true)
 	stowed_weapon = temp_weapon
 
+func swap_weapon_slots(slot_one: int, slot_two: int) -> void: 
+	if !current_weapon || !stowed_weapon:
+		return 
+	
+	if slot_one == 0 && slot_two == 1:
+		var temp = current_weapon
+		_set_weapon_enable(temp, false)
+		current_weapon = stowed_weapon
+		_set_weapon_enable(current_weapon, true)
+		stowed_weapon = temp
+		return 
+	
+	if slot_one == 0 && slot_two > 1:
+		if !stored_weapons[slot_two - 2]: return
+		var temp = current_weapon
+		_set_weapon_enable(temp, false)
+		current_weapon = stored_weapons[slot_two - 2]
+		_set_weapon_enable(current_weapon, true)
+		stored_weapons[slot_two - 2] = temp
+		return 
+	
+	if slot_one == 1 && slot_two > 1:
+		if !stored_weapons[slot_two - 2]: return
+		var temp = stowed_weapon
+		_set_weapon_enable(temp, false)
+		stowed_weapon = stored_weapons[slot_two - 2]
+		_set_weapon_enable(stowed_weapon, true)
+		stored_weapons[slot_two - 2] = temp
+		return
+
 func _get_ammo_display() -> String: 
 	if current_weapon: 
 		if !current_weapon.is_reloading:
